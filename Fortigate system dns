@@ -1,0 +1,18 @@
+---
+- hosts: fortigate01
+  collections:
+   - fortinet.fortios
+  connection: httpapi
+  vars:
+   vdom: "root"
+   ansible_httpapi_use_ssl: yes
+   ansible_httpapi_validate_certs: no
+   ansible_httpapi_port: 443
+   token: "jy5h30p7hbxghG5pydjjjk3h46xyyp"
+  tasks:
+  - name: Configure global attributes.
+    fortios_system_dns:
+      vdom:  "{{ vdom }}"
+      access_token: "{{ token }}"
+      system_dns:
+        primary: "2.32.2.2"
