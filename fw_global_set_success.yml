@@ -8,7 +8,7 @@
    ansible_httpapi_use_ssl: yes
    ansible_httpapi_validate_certs: no
    ansible_httpapi_port: 443
-   token: "0q8tygtqzGHbn3q3HhGprhGg5kG5by"
+   token: "hc377Qsc81rqtj64w80n78yqzfs6mn"
   tasks:
   - name: Configure global attributes.
     fortios_system_global:
