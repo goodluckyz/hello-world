@@ -1,0 +1,26 @@
+---
+- hosts: juniper
+  vars:
+    ansible_user: ansible
+    ansible_ssh_private_key_file: juniper-hosts.key
+  gather_facts: no
+  collections:
+     - junipernetworks.junos
+  tasks:
+    - name: "Execute single command in text format"
+      junipernetworks.junos.junos_command:
+         commands: show version
+
+*********************************************
+
+[edit system login]
++    user ansible {
++        uid 2001;
++        class super-user;
++        authentication {
++            ssh-rsa "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCSs50gh0m5dA78xhZn6G                                                                             sSHfUrDPSGkNVMx1AyJwy8gdm4c2tT44zopfdpZrHR/Yo2sIBL58D9zo+4SM3ABg4ogttByl1CtrrV5t                                                                             H77EIR1LDCRi/ORMOjHnIAaV6F3yfsSrDs4NnmxjG2VDdxzLaukrFuuZHjPWQd+jXfiut68SVdQ4S7kc                                                                             sbnRsjodfk57LUyMNDQiHz5KO1m/I5ZwYVjYsfaOz2asoTIJQFS4OvIXX0PVyZmhJ/w6WDXJ0hZh2C2z                                                                             sRYbs1AGHK0UsTg5xdKvQ3JTztkoG+d3l/wMQQu4XHYb6wDVVh+pKUuvPX0UYgOH2qGnhVisGXUN5ir1                                                                             TYQiQiXXcK+lx0K1v2AlSUkNDzxzp+SF6acUG750uo8WQz3RWh2N5TbvHC/mMUFmuDTGIHl5sIECa+wX                                                                             mwEb52OLjMYhbFACmZZx1xtKgTNg+3qSfyDIZUrJDEOj9heqC+gHY5ACc4PgXWU0N6OjqB0BHiRN0hNT                                                                             bxWJ1BhZ1M4y0= root@ip-172-31-69-10.test.com"; ## SECRET-DATA
++        }
++    }
+
+
+sudo ssh-keygen -f ./juniper-hosts.key
