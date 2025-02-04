@@ -1,0 +1,27 @@
+---
+- hosts: fortigate01
+  collections:
+   - fortinet.fortios
+  connection: httpapi
+  vars:
+   vdom: "root"
+   ansible_httpapi_use_ssl: yes
+   ansible_httpapi_validate_certs: no
+   ansible_httpapi_port: 443
+   token: "jy5h30p7hbxghG5pydjjjk3h46xyyp"
+  tasks:
+  - name: Configure global attributes.
+    fortios_system_ntp:
+      vdom:  "{{ vdom }}"
+      access_token: "{{ token }}"
+      system_ntp:
+        ntpsync: "enable"
+        type: custom
+        ntpserver:
+         -
+           id: "3"
+           server: "8.8.4.4"
+           id: "4"
+           server: "1.1.1.1"
+           id: "5"
+           server: "1.1.2.2"
